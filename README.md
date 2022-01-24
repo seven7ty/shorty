@@ -23,6 +23,7 @@ All routes available, apart from the base redirect, return a JSON response paire
   "message": "Error message."
 }
 ```
+Aside from that, the API also requires authentication through the `X-Auth-Key` header. 
 
 ## 🛣️ The routes
 Requests to URLs other than `/` are handled by the worker and fall under the following spec. 

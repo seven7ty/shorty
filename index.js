@@ -1,9 +1,7 @@
 import { Router } from 'itty-router'
 
-
 const MAX_SLUG_LENGTH = 30;
 const RESERVED_SLUGS = ["api", "new"];
-
 
 let nanoid = (t=21) => {
   let e = "",
@@ -31,18 +29,15 @@ const add_link = async (slug, url) => {
   return new_json_response({success: true, payload: {slug: slug, url: url}}, {status: 201})
 }
 
-
 const auth = request => {
   if (request.headers.get(AUTH_HEADER) !== AUTH_KEY) {
     return new_json_response({success: false, message: "Invalid auth key header supplied."}, {status: 401})
   }
 }
 
-
 const new_json_response = (body, init) => {
   return new Response(JSON.stringify(body), {...init, headers: {...init.headers, "Content-Type": "application/json"}});
 }
-
 
 router.get("/", () => {
   return new Response("Uh oh, something went wrong. (wulf plz fix)", {status: 500})

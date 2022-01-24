@@ -2,6 +2,10 @@ name: Deploy
 
 on:
   push:
+    paths:
+      - '**.js'
+      - '**.json'
+      - 'wrangler.toml'
     branches:
       - main
   

@@ -9,7 +9,3 @@ compatibility_date = "2022-01-23"
 kv_namespaces = [
   { binding = "LINKS", id = "6af8c0e9827d4a52bf9770b460614af0", preview_id = "6af8c0e9827d4a52bf9770b460614af0" }
 ]
-
-[vars]
-AUTH_KEY = "ip5fYofhqrHnyyjxLY6sGhJLNeyBh2NxcmBAreeM"
-AUTH_HEADER = "X-Auth-Key"

@@ -2,6 +2,7 @@ import { Router } from 'itty-router'
 
 const MAX_SLUG_LENGTH = 30;
 const RESERVED_SLUGS = ["api", "new"];
+const URL_REGEX = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
 
 let nanoid = (t=21) => {
   let e = "",
@@ -13,7 +14,7 @@ let nanoid = (t=21) => {
   return e
 };
 
-const router = Router()
+const router = Router();
 
 
 const add_link = async (slug, url) => {
@@ -24,6 +25,8 @@ const add_link = async (slug, url) => {
     return new_json_response({success: false, message: "Link slug length cannot exceed 30 characters."}, {status: 400})
   } else if (RESERVED_SLUGS.includes(slug)) {
     return new_json_response({success: false, message: "Link slug cannot be one of the reserved words."}, {status: 400})
+  } else if (!URL_REGEX.test(url)) {
+    return new_json_response({success: false, message: "Invalid URL supplied."}, {status: 400})
   }
   await LINKS.put(slug, url)
   return new_json_response({success: true, payload: {slug: slug, url: url}}, {status: 201})

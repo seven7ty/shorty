@@ -58,7 +58,7 @@ Upon successful creation (not a duplicate, etc.), a JSON response is returned:
 }
 ```
 
-### `POST /new?url={}`
+### `POST /new?url={url}`
 
 Similar to the above, except, this route randomizes the slug using [`nanoid`](https://www.npmjs.com/package/nanoid).  
 Since the slug is random, it's very important to save it by reading the response:

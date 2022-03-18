@@ -86,10 +86,11 @@ router.get('/', () => {
   })
 })
 
-router.get("/file/:file_name", async (request) => {
-    return Response.redirect(`https://files.wulf.codes/r/${request.params.file_name}`);
-  }
-)
+router.get('/file/:file_name', async (request) => {
+  return Response.redirect(
+    `https://files.wulf.codes/r/${request.params.file_name}`,
+  )
+})
 
 router.get('/:slug', async ({ params }) => {
   const link = await LINKS.get(params.slug)

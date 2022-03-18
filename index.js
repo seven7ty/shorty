@@ -1,7 +1,7 @@
 import { Router } from 'itty-router'
 
 const MAX_SLUG_LENGTH = 30
-const RESERVED_SLUGS = ['api', 'new']
+const RESERVED_SLUGS = ['api', 'new', 'file']
 const URL_REGEX = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
 
 let nanoid = (t = 21) => {
@@ -83,6 +83,11 @@ router.get('/', () => {
     status: 500,
   })
 })
+
+router.get("/file/:file_name", async (request) => {
+    return Response.redirect(`https://files.wulf.codes/r/${request.params.file_name}`);
+  }
+)
 
 router.get('/:slug', async ({ params }) => {
   const link = await LINKS.get(params.slug)

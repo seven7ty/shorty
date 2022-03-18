@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
-  "author": "Paul Przybyszewski <pa.przybyszewski@gmail.com>",
+  "author": "wulf <hi@wulf.codes>",
   "license": "MIT",
   "devDependencies": {
     "prettier": "^1.18.2",

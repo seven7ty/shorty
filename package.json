@@ -3,13 +3,13 @@
   "type": "module",
   "name": "shorty",
   "version": "1.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
+  "description": "My personal Cloudflare worker serving as a URL shortener, among other things.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
-  "author": "wulf <hi@wulf.codes>",
+  "author": "Paul Przybyszewski <paul@przybyszewski.me>",
   "license": "MIT",
   "devDependencies": {
     "prettier": "^1.18.2",

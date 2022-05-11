@@ -1,7 +1,7 @@
 import { Router } from 'itty-router'
 
 const MAX_SLUG_LENGTH = 30
-const RESERVED_SLUGS = ['api', 'new', 'file']
+const RESERVED_SLUGS = ['api', 'new', 'file', 'pagination']
 const URL_REGEX = new RegExp(
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
 )
@@ -81,9 +81,12 @@ const new_json_response = (body, init) => {
 }
 
 router.get('/', () => {
-  return new Response('Uh oh, something went wrong. (wulf plz fix)', {
-    status: 500,
-  })
+  return Response.redirect('https://wulf.lol/pagination')
+})
+
+router.get('/pagination', auth, async ({ query }) => {
+  const links  = await LINKS.list({ cursor: query.cursor })
+  return new_json_response(links.keys)
 })
 
 router.get("/file/:file_name", async (request) => {

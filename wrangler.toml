@@ -3,8 +3,8 @@ type = "webpack"
 
 account_id = "611419771226127f40565bc3f2421ee2"
 workers_dev = true
-route = "wulf.codes/*"
-zone_id = "e71d7901c541d33af6baba72687ea886"
+route = "wulf.lol/*"
+zone_id = "29d40ff918ea20e65cd542f2898aedc3"
 compatibility_date = "2022-01-23"
 kv_namespaces = [
   { binding = "LINKS", id = "6af8c0e9827d4a52bf9770b460614af0", preview_id = "6af8c0e9827d4a52bf9770b460614af0" }

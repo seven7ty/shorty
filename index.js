@@ -85,14 +85,15 @@ router.get('/', () => {
 })
 
 router.get('/pagination', auth, async ({ query }) => {
-  const links  = await LINKS.list({ cursor: query.cursor })
+  const links = await LINKS.list({ cursor: query.cursor })
   return new_json_response(links.keys)
 })
 
-router.get("/file/:file_name", async (request) => {
-    return Response.redirect(`https://files.wulf.works/r/${request.params.file_name}`);
-  }
-)
+router.get('/file/:file_name', async (request) => {
+  return Response.redirect(
+    `https://files.wulf.works/r/${request.params.file_name}`,
+  )
+})
 
 router.get('/:slug', async ({ params }) => {
   const link = await LINKS.get(params.slug)
